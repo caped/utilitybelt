@@ -3,6 +3,16 @@
 /*------------------------------------*\
     $ASPECT-RATIO
 \*------------------------------------*/
+/**
+ *
+ *
+ *  <div class="aspect ratio-16-to-9">
+ *    <iframe src="http://player.vimeo.com/video/61337126" 
+ *      class="aspect-content" frameborder="0" 
+ *      webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+ *    </iframe>
+ *  </div>
+ */
 .aspect {
   position: relative;
   width: 100%;
