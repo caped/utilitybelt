@@ -1,58 +1,64 @@
-.canvas-wrapper {
-	position: relative;
-	overflow: hidden;
+/*------------------------------------*\
+    $OFF CANVAS
+\*------------------------------------*/
 
-	&.off-left {
-		.offcanvas {
-			left: -90%;
-			@include prefix-properties(transition, left 0.3s ease);
-		}
+@media(max-width: $offCanvasBreakpoint) {
+    .canvas-wrapper {
+        position: relative;
+        overflow: hidden;
 
-		.canvas {
-			@include prefix-properties(transition, left 0.3s ease);
-		}
+        &.off-left {
+            .offcanvas {
+                left: -90%;
+                @include prefix-properties(transition, left 0.3s ease);
+            }
 
-		&.active {
-			.offcanvas {
-				left: 0;
-			}
+            .canvas {
+                @include prefix-properties(transition, left 0.3s ease);
+            }
 
-			.canvas {
-				left: 90%;
-			}
-		}
-	}
+            &.active {
+                .offcanvas {
+                    left: 0;
+                }
 
-	&.off-right {
-		.offcanvas {
-			right: -90%;
-			@include prefix-properties(transition, right 0.3s ease);
-		}
+                .canvas {
+                    left: 90%;
+                }
+            }
+        }
 
-		.canvas {
-			@include prefix-properties(transition, right 0.3s ease);
-		}
+        &.off-right {
+            .offcanvas {
+                right: -90%;
+                @include prefix-properties(transition, right 0.3s ease);
+            }
 
-		&.active {
-			.offcanvas {
-				right: 0;
-			}
+            .canvas {
+                @include prefix-properties(transition, right 0.3s ease);
+            }
 
-			.canvas {
-				right: 90%;
-			}
-		}
-	}
-}
+            &.active {
+                .offcanvas {
+                    right: 0;
+                }
 
-.offcanvas {
-	position: absolute;
-	top: 0;
+                .canvas {
+                    right: 90%;
+                }
+            }
+        }
+    }
 
-	width: 90%;
-	min-height: 100%;
-}
+    .offcanvas {
+        position: absolute;
+        top: 0;
 
-.canvas {
-	position: relative;
+        width: 90%;
+        min-height: 100%;
+    }
+
+    .canvas {
+        position: relative;
+    }
 }

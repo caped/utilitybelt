@@ -1,7 +1,10 @@
+/** OFF CANVAS **/
+$offCanvasBreakpoint:           500px;
+
 /** EATER **/
 
-$eaterWidth: 					960px;
-$eaterItems: 					4;
+$eaterWidth:                    960px;
+$eaterItems:                    4;
 
 /** SLIDEABLE **/
 
@@ -11,4 +14,4 @@ $slideableTransitionFunction:   ease!default;
 
 /** TABLE **/
 
-$tableBreakpoint:               500px;
+$tableBreakpoint:               $offCanvasBreakpoint;
