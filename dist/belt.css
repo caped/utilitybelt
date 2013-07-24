@@ -3,6 +3,53 @@
 /** SLIDEABLE **/
 /** TABLE **/
 /** LAYOUT **/
+.canvas-wrapper {
+  position: relative;
+  overflow: hidden; }
+  .canvas-wrapper.off-left .offcanvas {
+    left: -90%;
+    -webkit-transition: left 0.3s ease;
+    -moz-transition: left 0.3s ease;
+    -ms-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
+    transition: left 0.3s ease; }
+  .canvas-wrapper.off-left .canvas {
+    -webkit-transition: left 0.3s ease;
+    -moz-transition: left 0.3s ease;
+    -ms-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
+    transition: left 0.3s ease; }
+  .canvas-wrapper.off-left.active .offcanvas {
+    left: 0; }
+  .canvas-wrapper.off-left.active .canvas {
+    left: 90%; }
+  .canvas-wrapper.off-right .offcanvas {
+    right: -90%;
+    -webkit-transition: right 0.3s ease;
+    -moz-transition: right 0.3s ease;
+    -ms-transition: right 0.3s ease;
+    -o-transition: right 0.3s ease;
+    transition: right 0.3s ease; }
+  .canvas-wrapper.off-right .canvas {
+    -webkit-transition: right 0.3s ease;
+    -moz-transition: right 0.3s ease;
+    -ms-transition: right 0.3s ease;
+    -o-transition: right 0.3s ease;
+    transition: right 0.3s ease; }
+  .canvas-wrapper.off-right.active .offcanvas {
+    right: 0; }
+  .canvas-wrapper.off-right.active .canvas {
+    right: 90%; }
+
+.offcanvas {
+  position: absolute;
+  top: 0;
+  width: 90%;
+  min-height: 100%; }
+
+.canvas {
+  position: relative; }
+
 /*------------------------------------*\
     $EATER
 \*------------------------------------*/
@@ -40,11 +87,13 @@
 
 .eater-item {
   float: left;
-  width: 100%;
   display: none; }
-  .eater-item:nth-child(1) {
-    display: block; }
 
+@media (min-width: 240px) {
+  .eater-item {
+    width: 100%; }
+    .eater-item:nth-child(1) {
+      display: block; } }
 @media (min-width: 480px) {
   .eater-item {
     width: 50%; }

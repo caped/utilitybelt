@@ -40,13 +40,7 @@
 
 .eater-item {
     float: left;
-    width: 100%;
-    
     display: none;
-
-    &:nth-child(1) {
-        display: block;
-    }
 }
 
 @mixin eater-breakpoint($val) {
@@ -62,6 +56,6 @@
     }
 }
 
-@for $i from 2 through $eaterItems {
+@for $i from 1 through $eaterItems {
     @include eater-breakpoint($i);
 }

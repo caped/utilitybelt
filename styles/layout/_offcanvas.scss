@@ -1,0 +1,58 @@
+.canvas-wrapper {
+	position: relative;
+	overflow: hidden;
+
+	&.off-left {
+		.offcanvas {
+			left: -90%;
+			@include prefix-properties(transition, left 0.3s ease);
+		}
+
+		.canvas {
+			@include prefix-properties(transition, left 0.3s ease);
+		}
+
+		&.active {
+			.offcanvas {
+				left: 0;
+			}
+
+			.canvas {
+				left: 90%;
+			}
+		}
+	}
+
+	&.off-right {
+		.offcanvas {
+			right: -90%;
+			@include prefix-properties(transition, right 0.3s ease);
+		}
+
+		.canvas {
+			@include prefix-properties(transition, right 0.3s ease);
+		}
+
+		&.active {
+			.offcanvas {
+				right: 0;
+			}
+
+			.canvas {
+				right: 90%;
+			}
+		}
+	}
+}
+
+.offcanvas {
+	position: absolute;
+	top: 0;
+
+	width: 90%;
+	min-height: 100%;
+}
+
+.canvas {
+	position: relative;
+}
