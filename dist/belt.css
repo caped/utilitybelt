@@ -1,4 +1,65 @@
 /** BASE **/
+/** EATER **/
+/** SLIDEABLE **/
+/** TABLE **/
+/** LAYOUT **/
+/*------------------------------------*\
+    $EATER
+\*------------------------------------*/
+/**
+ * Eater are good if you have lots of teaser or advertisement items which
+ * you don't necessarily need on every resolution and can be missed.
+ * 
+ * They are called 'eater' because those elements 'eat' content items if
+ * the browser width gets smaller.
+ *
+ * Actually, this approach here is more of an 'spitter' than an 'eater',
+ * because it's implemented mobile-first.
+ *
+ * The eater plugin here requires two parameters, which are located in the
+ * _variables file:
+ * 
+ *   $eaterWidth, which is set to a standard grid with of 960px
+ *   $eaterItems, which is 4 by default
+ *
+ * Sample code:
+ *
+ *  <div class="eater">
+ *    <div class="eater-item">A</div>
+ *    <div class="eater-item">B</div>
+ *    <div class="eater-item">C</div>
+ *    <div class="eater-item">D</div>
+ *  </div>
+ */
+.eater {
+  max-width: 960px;
+  overflow: hidden; }
+  .eater:after {
+    content: '';
+    clear: both; }
+
+.eater-item {
+  float: left;
+  width: 100%;
+  display: none; }
+  .eater-item:nth-child(1) {
+    display: block; }
+
+@media (min-width: 480px) {
+  .eater-item {
+    width: 50%; }
+    .eater-item:nth-child(2) {
+      display: block; } }
+@media (min-width: 720px) {
+  .eater-item {
+    width: 33.33333%; }
+    .eater-item:nth-child(3) {
+      display: block; } }
+@media (min-width: 960px) {
+  .eater-item {
+    width: 25%; }
+    .eater-item:nth-child(4) {
+      display: block; } }
 /** MODULES **/
 /*------------------------------------*\
     $ASPECT-RATIO
@@ -36,6 +97,40 @@
   left: 0;
   width: 100%;
   height: 100%; }
+
+/*------------------------------------*\
+    $SLIDEABLE
+\*------------------------------------*/
+/**
+ *
+ *  <div class="slideable">
+ *    <ul class="slideable-container">
+ *      <li class="slideable-item">
+ *      </li>
+ *      <li class="slideable-item">
+ *      </li>
+ *      <li class="slideable-item">
+ *      </li>
+ *    </ul>
+ *  </div>
+ */
+.slideable {
+  overflow: hidden;
+  width: 100%; }
+
+.slideable-container {
+  display: block;
+  margin-left: 0; }
+  .slideable-container.running {
+    -webkit-transition: margin-left 0.5s ease;
+    -moz-transition: margin-left 0.5s ease;
+    -ms-transition: margin-left 0.5s ease;
+    -o-transition: margin-left 0.5s ease;
+    transition: margin-left 0.5s ease; }
+
+.slideable-item {
+  display: block;
+  float: left; }
 
 /*------------------------------------*\
     $TABLES
