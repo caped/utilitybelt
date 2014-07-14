@@ -1,0 +1,270 @@
+/** BASE **/
+/** OFF CANVAS **/
+/** EATER **/
+/** SLIDEABLE **/
+/** TABLE **/
+/** LAYOUT **/
+/*------------------------------------*\
+    $OFF CANVAS
+\*------------------------------------*/
+@media (max-width: 500px) {
+  .canvas-wrapper {
+    position: relative;
+    overflow: hidden; }
+    .canvas-wrapper.off-left .offcanvas {
+      left: -90%;
+      -webkit-transition: left 0.3s ease;
+      -moz-transition: left 0.3s ease;
+      -ms-transition: left 0.3s ease;
+      -o-transition: left 0.3s ease;
+      transition: left 0.3s ease; }
+    .canvas-wrapper.off-left .canvas {
+      -webkit-transition: left 0.3s ease;
+      -moz-transition: left 0.3s ease;
+      -ms-transition: left 0.3s ease;
+      -o-transition: left 0.3s ease;
+      transition: left 0.3s ease; }
+    .canvas-wrapper.off-left.active .offcanvas {
+      left: 0; }
+    .canvas-wrapper.off-left.active .canvas {
+      left: 90%; }
+    .canvas-wrapper.off-right .offcanvas {
+      right: -90%;
+      -webkit-transition: right 0.3s ease;
+      -moz-transition: right 0.3s ease;
+      -ms-transition: right 0.3s ease;
+      -o-transition: right 0.3s ease;
+      transition: right 0.3s ease; }
+    .canvas-wrapper.off-right .canvas {
+      -webkit-transition: right 0.3s ease;
+      -moz-transition: right 0.3s ease;
+      -ms-transition: right 0.3s ease;
+      -o-transition: right 0.3s ease;
+      transition: right 0.3s ease; }
+    .canvas-wrapper.off-right.active .offcanvas {
+      right: 0; }
+    .canvas-wrapper.off-right.active .canvas {
+      right: 90%; }
+
+  .offcanvas {
+    position: absolute;
+    top: 0;
+    width: 90%;
+    min-height: 100%; }
+
+  .canvas {
+    position: relative; } }
+/*------------------------------------*\
+    $EATER
+\*------------------------------------*/
+/**
+ * Eater are good if you have lots of teaser or advertisement items which
+ * you don't necessarily need on every resolution and can be missed.
+ * 
+ * They are called 'eater' because those elements 'eat' content items if
+ * the browser width gets smaller.
+ *
+ * Actually, this approach here is more of an 'spitter' than an 'eater',
+ * because it's implemented mobile-first.
+ *
+ * The eater plugin here requires two parameters, which are located in the
+ * _variables file:
+ * 
+ *   $eaterWidth, which is set to a standard grid with of 960px
+ *   $eaterItems, which is 4 by default
+ *
+ * Sample code:
+ *
+ *  <div class="eater">
+ *    <div class="eater-item">A</div>
+ *    <div class="eater-item">B</div>
+ *    <div class="eater-item">C</div>
+ *    <div class="eater-item">D</div>
+ *  </div>
+ */
+.eater {
+  max-width: 960px;
+  overflow: hidden; }
+  .eater:after {
+    content: '';
+    clear: both; }
+
+.eater-item {
+  float: left;
+  display: none; }
+
+@media (min-width: 240px) {
+  .eater-item {
+    width: 100%; }
+    .eater-item:nth-child(1) {
+      display: block; } }
+@media (min-width: 480px) {
+  .eater-item {
+    width: 50%; }
+    .eater-item:nth-child(2) {
+      display: block; } }
+@media (min-width: 720px) {
+  .eater-item {
+    width: 33.33333%; }
+    .eater-item:nth-child(3) {
+      display: block; } }
+@media (min-width: 960px) {
+  .eater-item {
+    width: 25%; }
+    .eater-item:nth-child(4) {
+      display: block; } }
+/** MODULES **/
+/*------------------------------------*\
+    $ASPECT-RATIO
+\*------------------------------------*/
+/**
+ *
+ *
+ *  <div class="aspect ratio-16-to-9">
+ *    <iframe src="http://player.vimeo.com/video/61337126" 
+ *      class="aspect-content" frameborder="0" 
+ *      webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+ *    </iframe>
+ *  </div>
+ */
+.aspect {
+  position: relative;
+  width: 100%;
+  height: 0; }
+  .aspect.ratio-16-to-9 {
+    padding-bottom: 56.25%; }
+  .aspect.ratio-16-to-10 {
+    padding-bottom: 62.5%; }
+  .aspect.ratio-4-to-3 {
+    padding-bottom: 75%; }
+  .aspect.ratio-1-to-2 {
+    padding-bottom: 200%; }
+  .aspect.ratio-2-to-1 {
+    padding-bottom: 50%; }
+  .aspect.ratio-1-to-1 {
+    padding-bottom: 100%; }
+
+.aspect-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+/*------------------------------------*\
+    $SLIDEABLE
+\*------------------------------------*/
+/**
+ *
+ *  <div class="slideable">
+ *    <ul class="slideable-container">
+ *      <li class="slideable-item">
+ *      </li>
+ *      <li class="slideable-item">
+ *      </li>
+ *      <li class="slideable-item">
+ *      </li>
+ *    </ul>
+ *  </div>
+ */
+.slideable {
+  overflow: hidden;
+  width: 100%; }
+
+.slideable-container {
+  display: block;
+  margin-left: 0; }
+  .slideable-container.running {
+    -webkit-transition: margin-left 0.5s ease;
+    -moz-transition: margin-left 0.5s ease;
+    -ms-transition: margin-left 0.5s ease;
+    -o-transition: margin-left 0.5s ease;
+    transition: margin-left 0.5s ease; }
+
+.slideable-item {
+  display: block;
+  float: left; }
+
+/*------------------------------------*\
+    $TABLES
+\*------------------------------------*/
+/**
+ * Responsive tables are *not* mobile first due to one reason: They change the behaviour of
+ * the table elements completely, and it would not be smart to reconstruct an otherwise
+ * fine behaviour once you dismantled it.
+ *
+ * Here is an example of how to use it with Twitter Bootstrap. Just add .table-responsive
+ * to your table and make sure to replicate the table headings as data-title in each cell.
+ *
+ * <table class="table table-bordered table-responsive">
+ *   <thead>
+ *     <tr>
+ *       <th>Name</th>
+ *       <th>Age</th>
+ *       <th>Gender</th>
+ *     </tr>
+ *   </thead>
+ *   <tbody>
+ *     <tr>
+ *       <td data-title="Name">Sabine Pils</td>
+ *       <td data-title="Age">27</td>
+ *       <td data-title="Gender">female</td>
+ *     </tr>
+ *     <tr>
+ *       <td data-title="Name">Stefan Baumgartner</td>
+ *       <td data-title="Age">31</td>
+ *       <td data-title="Gender">male</td>
+ *     </tr>
+ *     <tr>
+ *       <td data-title="Name">Peter Gollowitsch</td>
+ *       <td data-title="Age">39</td>
+ *       <td data-title="Gender">male</td>
+ *     </tr>
+ *   </tbody>
+ * <table>
+ *
+ * By default, responsive tables start at 500px. Change the $tableBreakpoint variable to modify
+ *
+ */
+@media only screen and (max-width: 500px) {
+  /* Force table to not be like tables anymore */
+  .table-responsive,
+  .table-responsive thead,
+  .table-responsive tbody,
+  .table-responsive th,
+  .table-responsive td,
+  .table-responsive tr {
+    display: block; }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .table-responsive thead tr {
+    position: absolute;
+    top: -100%;
+    left: -100%; }
+
+  .table-responsive tr {
+    margin-bottom: 1px; }
+
+  .table-responsive td {
+    /* Behave  like a "row" */
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    white-space: normal;
+    text-align: left; }
+
+  .table-responsive td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold; }
+
+  /* label the data */
+  .table-responsive td:before {
+    content: attr(data-title); } }

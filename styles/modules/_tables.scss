@@ -1,0 +1,92 @@
+/*------------------------------------*\
+    $TABLES
+\*------------------------------------*/
+/**
+ * Responsive tables are *not* mobile first due to one reason: They change the behaviour of
+ * the table elements completely, and it would not be smart to reconstruct an otherwise
+ * fine behaviour once you dismantled it.
+ *
+ * Here is an example of how to use it with Twitter Bootstrap. Just add .table-responsive
+ * to your table and make sure to replicate the table headings as data-title in each cell.
+ *
+ * <table class="table table-bordered table-responsive">
+ *   <thead>
+ *     <tr>
+ *       <th>Name</th>
+ *       <th>Age</th>
+ *       <th>Gender</th>
+ *     </tr>
+ *   </thead>
+ *   <tbody>
+ *     <tr>
+ *       <td data-title="Name">Sabine Pils</td>
+ *       <td data-title="Age">27</td>
+ *       <td data-title="Gender">female</td>
+ *     </tr>
+ *     <tr>
+ *       <td data-title="Name">Stefan Baumgartner</td>
+ *       <td data-title="Age">31</td>
+ *       <td data-title="Gender">male</td>
+ *     </tr>
+ *     <tr>
+ *       <td data-title="Name">Peter Gollowitsch</td>
+ *       <td data-title="Age">39</td>
+ *       <td data-title="Gender">male</td>
+ *     </tr>
+ *   </tbody>
+ * <table>
+ *
+ * By default, responsive tables start at 500px. Change the $tableBreakpoint variable to modify
+ *
+ */
+
+@media only screen and (max-width: $tableBreakpoint) {
+  
+  /* Force table to not be like tables anymore */
+  .table-responsive, 
+  .table-responsive thead, 
+  .table-responsive tbody, 
+  .table-responsive th, 
+  .table-responsive td, 
+  .table-responsive tr { 
+    display: block; 
+  }
+ 
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .table-responsive thead tr { 
+    position: absolute;
+    top: -100%;
+    left: -100%;
+  }
+ 
+  .table-responsive tr { 
+    margin-bottom: 1px;
+  }
+ 
+  .table-responsive td { 
+    /* Behave  like a "row" */
+    border: none;
+    position: relative;
+    padding-left: 50%; 
+    white-space: normal;
+    text-align: left;
+  }
+ 
+  .table-responsive td:before { 
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%; 
+    padding-right: 10px; 
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+  }
+ 
+  /* label the data */
+  .table-responsive td:before { 
+    content: attr(data-title); 
+  }
+}

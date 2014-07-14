@@ -1,0 +1,21 @@
+$default-prefixes: '-webkit-', '-moz-', '-ms-', '-o-', '';
+
+@mixin prefix-properties($property, $value, $prefixes: $default-prefixes) {
+  @each $prefix in $prefixes {
+    #{$prefix}#{$property}: #{$value};
+  }
+}
+
+
+@mixin prefix-values($property, $value, $prefixes: $default-prefixes) {
+  @each $prefix in $prefixes {
+  #{$property}: #{$prefix}#{$value};
+  }
+  #{$property}: #{$value};
+}
+
+@mixin prefix-all($property, $value, $prefixes: $default-prefixes) {
+  @each $prefix in $prefixes {
+    #{$prefix}#{$property}: #{$prefix}#{$value};
+  }
+}

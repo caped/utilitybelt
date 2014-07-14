@@ -1,0 +1,61 @@
+/*------------------------------------*\
+    $EATER
+\*------------------------------------*/
+
+/**
+ * Eater are good if you have lots of teaser or advertisement items which
+ * you don't necessarily need on every resolution and can be missed.
+ * 
+ * They are called 'eater' because those elements 'eat' content items if
+ * the browser width gets smaller.
+ *
+ * Actually, this approach here is more of an 'spitter' than an 'eater',
+ * because it's implemented mobile-first.
+ *
+ * The eater plugin here requires two parameters, which are located in the
+ * _variables file:
+ * 
+ *   $eaterWidth, which is set to a standard grid with of 960px
+ *   $eaterItems, which is 4 by default
+ *
+ * Sample code:
+ *
+ *  <div class="eater">
+ *    <div class="eater-item">A</div>
+ *    <div class="eater-item">B</div>
+ *    <div class="eater-item">C</div>
+ *    <div class="eater-item">D</div>
+ *  </div>
+ */
+
+.eater {
+    max-width: $eaterWidth;
+    overflow: hidden;
+
+    &:after {
+        content: '';
+        clear: both;
+    }
+}
+
+.eater-item {
+    float: left;
+    display: none;
+}
+
+@mixin eater-breakpoint($val) {
+
+    @media(min-width: $eaterWidth / $eaterItems*$val) {
+        .eater-item {
+            width: 100% / $val;
+
+            &:nth-child(#{$val}) {
+                display: block;
+            }
+        }
+    }
+}
+
+@for $i from 1 through $eaterItems {
+    @include eater-breakpoint($i);
+}

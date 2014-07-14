@@ -1,0 +1,52 @@
+/*------------------------------------*\
+    $ASPECT-RATIO
+\*------------------------------------*/
+
+/**
+ *
+ *
+ *  <div class="aspect ratio-16-to-9">
+ *    <iframe src="http://player.vimeo.com/video/61337126" 
+ *      class="aspect-content" frameborder="0" 
+ *      webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+ *    </iframe>
+ *  </div>
+ */
+
+.aspect {
+	position: relative;
+  width: 100%;
+  height: 0;
+
+  &.ratio-16-to-9 {
+    padding-bottom: 56.25%;
+  }
+
+  &.ratio-16-to-10 {
+    padding-bottom: 62.5%;
+  }
+
+  &.ratio-4-to-3 {
+    padding-bottom: 75%;
+  }
+
+  &.ratio-1-to-2 {
+    padding-bottom: 200%;
+  }
+
+  &.ratio-2-to-1 {
+    padding-bottom: 50%;
+  }
+
+  &.ratio-1-to-1 {
+    padding-bottom: 100%;
+  }
+}
+
+.aspect-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
